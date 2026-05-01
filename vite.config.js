@@ -4,4 +4,18 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+
+  // ✅ ensures proper routing fallback in dev + preview
+  server: {
+    historyApiFallback: true,
+  },
+
+  preview: {
+    port: 4173,
+    strictPort: true,
+  },
+
+  build: {
+    outDir: "dist",
+  },
 });
